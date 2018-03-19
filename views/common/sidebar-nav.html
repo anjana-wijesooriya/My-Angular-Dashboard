@@ -1,0 +1,64 @@
+<div class="sidebar">
+    <nav class="sidebar-nav">
+        <ul class="nav">
+            <li id="thirdtip" class="has-user-block">
+                <!--div(uib-collapse="userBlockVisible", ng-controller="UserBlockController")-->
+                <div class="collapse show" role="tabpanel" id="collapseProfileblock" style="height: auto;">
+                    <div class="item user-block">
+                        <!-- User picture-->
+                        <div class="user-block-picture zoom a" href="/app/my-details">
+                            <div class="user-block-status">
+                                <img alt="Avatar" class="img-thumbnail img-circle" ng-src="img/avatars/1.jpg" src="img/avatars/1.jpg">
+                                <div class="circle circle-success circle-lg"></div>
+                            </div>
+                        </div>
+                        <!-- Name and Job-->
+                        <div class="user-block-info">
+                            <span ui-sref="app.myDetails" class="user-block-name zoom a ng-binding">Anjana Gihan Wijesooriya</span>
+                            <span class="user-block-role zoom ng-binding text-aqua">Software Engineer</span>
+                            
+                            <!-- <span class="user-block-role ng-binding">Exp Level 0 - Newbie</span>
+                            <div class="center-block progress ng-isolate-scope" style="width: 80%; margin-top: 5px" max="100" value="(user.exp * 100) / user.level.max">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="33.333333333333336"
+                                    aria-valuemin="0" aria-valuemax="100" ng-style="{width: (percent < 100 ? percent : 100) + '%'}"
+                                    aria-valuetext="33%" aria-labelledby="progressbar" style="min-width: 0px; width: 33.33%;">
+                                    <span class="text-nowrap ng-binding ">50 / 150</span>
+                                </div>
+                            </div> -->
+                            <!--span.user-block-role.zoom-->
+                            <!--  | {{user.exp}} XP-->
+                            <!--  img(style="width: 20px", src='{{vm.serverPath}}/app/images/misc/exp_icon.png')-->
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-title">
+                Menu
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" ui-sref-active="active" ui-sref="app.dashboard">
+                    <i class="icon-speedometer"></i> Dashboard
+                    <span style="display:none;" class="badge badge-info">NEW</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" ui-sref-active="active" ui-sref="app.skills">
+                    <i class="icon-settings"></i> Skills
+                    <span style="display:none;" class="badge badge-info">NEW</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" ui-sref-active="active" ui-sref="app.education">
+                    <i class="icon-graduation"></i> Education
+                    <span style="display:none;" class="badge badge-info">NEW</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" ui-sref-active="active" ui-sref="app.experience">
+                    <i class="icon-briefcase"></i> Experience
+                    <span style="display:none;" class="badge badge-info">NEW</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>

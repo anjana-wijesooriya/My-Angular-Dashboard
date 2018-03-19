@@ -1,0 +1,21 @@
+{
+    "name": "AnjanaAngularDashboard",
+    "version": "1.0.0-alpha.5 (AngularJS)",
+    "dependencies": {
+        "bootstrap": "4.0.0-alpha.6",
+        "jquery": "^3.0.0",
+        "tether": "latest",
+        "angular": "latest",
+        "angular-route": "latest",
+        "angular-ui-router": "latest",
+        "oclazyload": "latest",
+        "angular-breadcrumb": "latest",
+        "angular-loading-bar": "latest",
+        "fontawesome": "latest",
+        "simple-line-icons": "latest",
+        "chart.js": "^2.3.0",
+        "angular-chart.js": "^1.0.3",
+        "devicon":"latest"
+    },
+    "private": true
+}

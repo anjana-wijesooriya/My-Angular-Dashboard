@@ -1,0 +1,126 @@
+<div class="animated fadeIn">
+    <div class="row" ng-controller="AchievementCtrl as achievement">
+        <div class="col-sm-6 col-lg-3" ng-repeat="data in achievement.Maindata">
+            <div class="social-box {{data.class}}">
+                <i class="fa {{data.icon}}"></i>
+                <div class="chart-wrapper">
+                </div>
+                <ul>
+                    <li>
+                        <strong>{{data.title}}</strong>
+                    </li>
+                    <li>
+                        <strong>{{data.value}}</strong>
+                        <span ng-if="data.title == 'Experence'">Years</span>
+                    </li>
+                </ul>
+            </div>
+            <!--/.achievment-box-->
+        </div>
+        <!--/.col-->
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                I'm Casual But Not Usual
+            </div>
+            <div class="card-block">
+                <div class="row">
+                    <div class="col-sm-12 col-lg-8" ng-controller="HightlightCtrl as highlight">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div id="owl-single" class="owl-carousel owl-theme">
+                                    <div class="item" style="width:400px;">
+                                        <img src="img/avatars/1.jpg" />
+                                    </div>
+                                    <div class="item" style="width:400px;">
+                                        <img src="img/avatars/2.jpg" />
+                                    </div>
+                                    <div class="item" style="width:400px;">
+                                        <img src="img/avatars/3.jpg" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-lg-4" ng-controller="horizontalBarsCtrl as bar">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="callout callout-info">
+                                    <strong class="h4">{{bar.title}}</strong>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <hr class="mt-0">
+                                <ul class="horizontal-bars type-2">
+                                    <li ng-repeat="row in bar.source">
+                                        <i ></i>
+                                        <span class="title">{{ row.title }}</span>
+                                        <span class="value">{{ row.percent }}%</span>
+                                        <div class="bars">
+                                            <div class="progress progress-xs">
+                                                <div class="progress-bar {{row.theme}}" role="progressbar" style="width: {{ row.percent }}%" aria-valuenow="{{ row.percent }}" aria-valuemin="0"
+                                                    aria-valuemax="100"></div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="divider text-center">
+                                        <button type="button" class="btn btn-sm btn-link text-muted" data-toggle="tooltip" data-placement="top" title="show more">
+                                            <i class="icon-options"></i>
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!--/.col-->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/.col-->
+</div>
+<div class="row" ng-controller="HightlightCtrl as highlight">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-header text-uppercase">
+                {{highlight.secondTitle}}
+            </div>
+            <div class="card-block">
+                <div class="row">
+                    <div class="col-sm-12 col-lg-12">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="owl-carousel owl-theme techs-tools">
+                                    
+                                    <div class="item" ng-repeat="tech in highlight.techs">
+                                        <span>
+                                            <i class="{{tech.class}} "></i>
+                                            <h3 class="item-title">{{tech.name}}</h3>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="card-body text-center">
+                                    <button type="button" class="btn btn-primary prev">
+                                        <i class="fa fa-fast-backward"></i>&nbsp; Previous</button>
+                                    <button type="button" class="btn btn-success play">
+                                        <i class="fa fa-play-circle"></i>&nbsp;Autoplay </button>
+                                        <button type="button" class="btn btn-danger stop">
+                                            <i class="fa fa-ban"></i>&nbsp; Stop</button>
+                                    <button type="button" class="btn btn-warning next">
+                                        <i class="fa fa-fast-forward"></i>&nbsp;Next </button>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
