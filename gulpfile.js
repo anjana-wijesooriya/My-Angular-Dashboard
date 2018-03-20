@@ -11,6 +11,8 @@ var rename = require('gulp-rename');
 var del = require('del');
 var runSequence = require('run-sequence');
 var replace = require('gulp-replace');
+var connect = require('gulp-connect');
+var connect = require('gulp-connect');
 //var ghPages = require('gulp-gh-pages');
 
 gulp.paths = {
@@ -18,6 +20,14 @@ gulp.paths = {
 };
 
 var paths = gulp.paths;
+
+gulp.task('serveprod', function () {
+    connect.server({
+        root: ['./'],
+        port: process.env.PORT || 5000, // localhost:5000
+        livereload: false
+    });
+});
 
 // Static Server + watching scss/html files
 gulp.task('serve', ['sass'], function () {

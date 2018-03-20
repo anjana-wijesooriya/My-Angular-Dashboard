@@ -15,6 +15,7 @@
         "gulp": "^3.9.1",
         "gulp-bower-src": "^0.1.0",
         "gulp-concat": "^2.6.0",
+        "gulp-connect": "^5.5.0",
         "gulp-filter": "^5.1.0",
         "gulp-rename": "^1.2.2",
         "gulp-replace": "^0.6.1",
@@ -23,9 +24,8 @@
         "main-bower-files": "^2.13.1",
         "run-sequence": "^2.2.1"
     },
-    "scripts": { 
-        "build": "gulp build:dist",
-        "start": "gulp serve",
+    "scripts": {
+        "start": "node node_modules/gulp/bin/gulp serveprod",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "author": "Anjana Gihan",
