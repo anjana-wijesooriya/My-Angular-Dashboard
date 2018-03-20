@@ -11,7 +11,7 @@ var rename = require('gulp-rename');
 var del = require('del');
 var runSequence = require('run-sequence');
 var replace = require('gulp-replace');
-var ghPages = require('gulp-gh-pages');
+//var ghPages = require('gulp-gh-pages');
 
 gulp.paths = {
     dist: 'dist',
@@ -33,10 +33,10 @@ gulp.task('serve', ['sass'], function () {
 });
 
 // which can be used to push to gh-pages going forward.
-gulp.task('deploy', function() {
-  return gulp.src('./dist/**/*')
-    .pipe(ghPages());
-});
+// gulp.task('deploy', function() {
+//   return gulp.src('./dist/**/*')
+//     .pipe(ghPages());
+// });
 
 // Static Server without watching scss files
 gulp.task('serve:lite', function () {
