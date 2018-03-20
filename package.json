@@ -23,7 +23,7 @@
         "main-bower-files": "^2.13.1",
         "run-sequence": "^2.2.1"
     },
-    "scripts": {
+    "scripts": { 
         "start": "gulp",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
