@@ -11,23 +11,13 @@ var rename = require('gulp-rename');
 var del = require('del');
 var runSequence = require('run-sequence');
 var replace = require('gulp-replace');
-var connect = require('gulp-connect');
-var connect = require('gulp-connect');
-//var ghPages = require('gulp-gh-pages');
+var runSeq = require('run-sequence');
 
 gulp.paths = {
     dist: 'dist',
 };
 
 var paths = gulp.paths;
-
-gulp.task('serveprod', function () {
-    connect.server({
-        root: ['./'],
-        port: process.env.PORT || 5000, // localhost:5000
-        livereload: false
-    });
-});
 
 // Static Server + watching scss/html files
 gulp.task('serve', ['sass'], function () {
@@ -42,11 +32,9 @@ gulp.task('serve', ['sass'], function () {
 
 });
 
-// which can be used to push to gh-pages going forward.
-// gulp.task('deploy', function() {
-//   return gulp.src('./dist/**/*')
-//     .pipe(ghPages());
-// });
+gulp.task("heroku:production", function () {
+    runSeq('serve')
+});
 
 // Static Server without watching scss files
 gulp.task('serve:lite', function () {
