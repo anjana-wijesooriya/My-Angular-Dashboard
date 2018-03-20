@@ -23,10 +23,13 @@
         "main-bower-files": "^2.13.1",
         "run-sequence": "^2.2.1"
     },
+<<<<<<< HEAD
     "scripts": { 
         "start": "gulp",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
+=======
+>>>>>>> 65b3de0f372f1ccb25e41c265f6868264e271ab9
     "author": "Anjana Gihan",
     "url": "https://www.linkedin.com/in/ajgihan/",
     "copyright": "Copyright 2018 Anjana Gihan"
