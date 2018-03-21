@@ -7,4 +7,4 @@ var GetStoredObject = function (name) {
     return localStorage.getItem(name);
 }
 
-SetStoredObject('restApiPath', 'https://my-dashboard-restapi.herokuapp.com/');
+SetStoredObject('restApiPath', 'http://localhost:8080/');

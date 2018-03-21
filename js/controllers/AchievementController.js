@@ -8,15 +8,13 @@
             $log.info("Could not fetch data....");
         }
 
-        var OnAchievementComplete = function (data) {
+        var OnGetAchievementComplete = function (data) {
             achievement.Maindata = data;
         }
 
         var GetDashboardAchievements = function () {
-            dashboard.getDashboardAchievements().then(OnAchievementComplete, OnError);
+            dashboard.getDashboardAchievements().then(OnGetAchievementComplete, OnError);
         }
-
-       
 
         GetDashboardAchievements();
     }

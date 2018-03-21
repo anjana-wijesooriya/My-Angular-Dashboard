@@ -1,81 +1,32 @@
 
 angular.module('app')
-    .controller('HightlightCtrl', ['$scope', HightlightCtrl])
-    .controller('horizontalBarsCtrl', ['$scope', horizontalBarsCtrl])
+    .controller('HightlightCtrl', ['$scope', 'dashboard', '$log', '$timeout', HightlightCtrl])
+    .controller('horizontalBarsCtrl', ['$scope', 'dashboard', '$log', horizontalBarsCtrl])
 
 
-function HightlightCtrl($scope) {
+function HightlightCtrl($scope, dashboard, $log, $timeout) {
     var highlight = this;
 
     highlight.title = "I'm Casual But Not Usual";
     highlight.secondTitle = "Techs & Tools I Most Used";
 
-    highlight.skills = [
-        {
-            title: "Design & Development",
-            theme: "aqua",
-            percentage: 80
-        },
-        {
-            title: "Communication",
-            theme: "red",
-            percentage: 83
-        },
-        {
-            title: "Planning & Progressing",
-            theme: "green",
-            percentage: 75
-        },
-        {
-            title: "Problem Solving & Decision Making",
-            theme: "yellow",
-            percentage: 85
-        },
-        {
-            title: "Loyal & Dedication",
-            theme: "aqua",
-            percentage: 100
-        },
-        {
-            title: "Fun & Friendly",
-            theme: "green",
-            percentage: 95
-        },
-        {
-            title: "Lazy & Sleepy",
-            theme: "red",
-            percentage: 40
-        }
-    ];
+    var OnError = function (reason) {
+        $log.info("Could not fetch data....");
+    };
 
-    highlight.techs = [
-        { name: 'C#', class: 'devicon-csharp-plain' },
-        { name: 'Visual Studio', class: 'devicon-visualstudio-plain' },
-        { name: 'HTML5', class: 'devicon-html5-plain' },
-        { name: 'CSS3', class: 'devicon-css3-plain' },
-        { name: 'SASS', class: 'devicon-sass-original' },
-        { name: 'bootstrap', class: 'devicon-bootstrap-plain' },
-        { name: 'MYSQL', class: 'devicon-mysql-plain' },
-        { name: 'Javascript', class: 'devicon-javascript-plain' },
-        { name: 'JQuery', class: 'devicon-jquery-plain' },
-        { name: 'AngularJS', class: 'devicon-angularjs-plain' },
-        { name: 'Typescript', class: 'devicon-typescript-original' },
-        { name: 'GIT', class: 'devicon-git-plain' },
-        { name: 'NodeJS', class: 'devicon-nodejs-plain' }
-    ]
+    var OnGetTechComplete = function (data) {
+        highlight.techs = data;
+        $timeout(function () { InitiateTechCarousel(); }, 100);
+        //InitiateTechCarousel();
+    }
 
-    //cartoon photo slider carosusel
-    $("#owl-single").owlCarousel({
-        navigation: true, // Show next and prev buttons
-        slideSpeed: 300,
-        nav: true,
-        items: 1,
-        loop: true,
-        paginationSpeed: 400,
-        singleItem: true,
-        autoPlay: 5000, //Set AutoPlay to 3 seconds
-    });
-    setTimeout(() => {
+    var getDashboardTechs = function () {
+        dashboard.getDashboardTechs().then(OnGetTechComplete, OnError);
+    }
+    getDashboardTechs();
+
+    var InitiateTechCarousel = function () {
+        //tech tools slider
         var owl = $('.techs-tools');
         owl = $('.techs-tools').owlCarousel({
             loop: true,
@@ -106,12 +57,24 @@ function HightlightCtrl($scope) {
         $(".stop").click(function () {
             owl.trigger('stop.owl.autoplay');
         })
-    }, 200);
+    }
+
+    //cartoon photo slider carosusel
+    $("#owl-single").owlCarousel({
+        navigation: true, // Show next and prev buttons
+        slideSpeed: 300,
+        nav: true,
+        items: 1,
+        loop: true,
+        paginationSpeed: 400,
+        singleItem: true,
+        autoPlay: 5000, //Set AutoPlay to 3 seconds
+    });
     
 }
 
 horizontalBarsCtrl.$inject = ['$scope'];
-function horizontalBarsCtrl($scope) {
+function horizontalBarsCtrl($scope, dashboard, $log) {
 
     var bars = this;
     bars.title = 'Know About Me';
@@ -120,48 +83,16 @@ function horizontalBarsCtrl($scope) {
         
     ];
 
-    bars.source = [
-        {
-            title: 'Design & Development',
-            icon: 'icon-user',
-            percent: 43,
-            theme: 'progress-bar-aqua'
-        },
-        {
-            title: 'Communication',
-            icon: 'icon-user-female',
-            percent: 37,
-            theme: 'progress-bar-red'
-        },
-        {
-            title: 'Planning & Progressing',
-            icon: 'icon-globe',
-            percent: 56,
-            theme: 'progress-bar-green'
-        },
-        {
-            title: 'Problem Solving & Decision Making',
-            icon: 'icon-social-facebook',
-            percent: 15,
-            theme: 'progress-bar-yellow'
-        },
-        {
-            title: 'Loyal & Dedication',
-            icon: 'icon-social-twitter',
-            percent: 11,
-            theme: 'progress-bar-orange'
-        },
-        {
-            title: 'Fun & Friendly',
-            icon: 'icon-social-linkedin',
-            percent: 8,
-            theme: 'progress-bar-maroon'
-        },
-        {
-            title: 'Lazy & Sleepy',
-            icon: 'icon-social-linkedin',
-            percent: 8,
-            theme: 'progress-bar-purple'
-        }
-    ];
+    var OnError = function (reason) {
+        $log.info("Could not fetch data....");
+    };
+    
+    var OnGetSkillsComplete = function (data) { 
+        bars.source = data;
+     }
+
+    var getDashboardSkills = function () {
+        dashboard.getDashboardSkills().then(OnGetSkillsComplete, OnError);
+    }
+    getDashboardSkills();
 }
