@@ -12,6 +12,7 @@ var del = require('del');
 var runSequence = require('run-sequence');
 var replace = require('gulp-replace');
 var runSeq = require('run-sequence');
+var server = require('gulp-express');
 
 gulp.paths = {
     dist: 'dist',

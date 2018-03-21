@@ -61,6 +61,9 @@
                     //page subtitle goes here
                     params: { subtitle: 'My Dashboard using AngularJS and Bootstrap' },
                     resolve: {
+                        loadMyService: ['$ocLazyLoad', function ($ocLazyLoad) {
+                            return $ocLazyLoad.load('js/services/DashboardService.js');
+                        }],
                         loadCSS: ['$ocLazyLoad', function ($ocLazyLoad) {
                             // you can lazy load CSS files
                             return $ocLazyLoad.load([{
