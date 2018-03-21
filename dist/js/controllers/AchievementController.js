@@ -1,35 +1,21 @@
 (function () { 
 
-    angular.module('app').controller('AchievementCtrl', ['$scope', AchievementCtrl]);
+    angular.module('app').controller('AchievementCtrl', ['$scope', '$log', 'dashboard', AchievementCtrl]);
 
-    function AchievementCtrl($scope) {
+    function AchievementCtrl($scope, $log, dashboard) {
         var achievement = this;
-        achievement.Maindata = [
-            {
-                title: 'Projects',
-                icon: 'fa-puzzle-piece',
-                value: '10',
-                class: 'projects'
-            },
-            {
-                title: 'Experence',
-                icon: 'fa-code',
-                value: '2+',
-                class: 'experience'
-            },
-            {
-                title: 'Awards',
-                icon: 'fa-trophy',
-                value: '2',
-                class: 'awards'
+        var OnError = function (reason) {
+            $log.info("Could not fetch data....");
+        }
 
-            },
-            {
-                title: 'Glasses of Beer',
-                icon: 'fa-glass',
-                value: '1000+',
-                class: 'beer'
-            }
-        ];
+        var OnGetAchievementComplete = function (data) {
+            achievement.Maindata = data;
+        }
+
+        var GetDashboardAchievements = function () {
+            dashboard.getDashboardAchievements().then(OnGetAchievementComplete, OnError);
+        }
+
+        GetDashboardAchievements();
     }
 }());

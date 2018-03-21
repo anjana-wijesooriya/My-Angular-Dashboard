@@ -2,7 +2,7 @@
     <div class="row" ng-controller="AchievementCtrl as achievement">
         <div class="col-sm-6 col-lg-3" ng-repeat="data in achievement.Maindata">
             <div class="social-box {{data.class}}">
-                <i class="fa {{data.icon}}"></i>
+                <i class="fa {{data.iconname}}"></i>
                 <div class="chart-wrapper">
                 </div>
                 <ul>
@@ -11,7 +11,7 @@
                     </li>
                     <li>
                         <strong>{{data.value}}</strong>
-                        <span ng-if="data.title == 'Experence'">Years</span>
+                        <span ng-if="data.title == 'Experience'">Years</span>
                     </li>
                 </ul>
             </div>
