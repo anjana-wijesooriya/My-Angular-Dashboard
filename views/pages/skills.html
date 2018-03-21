@@ -1,5 +1,5 @@
-<div class="animated fadeIn" ng-controller="SkillsCtrl as skills">
-    <div class="card" ng-repeat="data in skills.data track by $index">
+<div class="animated fadeIn" ng-controller="SkillsCtrl as skill">
+    <div class="card" ng-repeat="data in skill.data track by $index">
         <div class="card-header">
             {{data.title}}
         </div>
@@ -7,12 +7,12 @@
             <!--/.row-->
             <div class="row">
                 <div class="col-sm-6 col-lg-3" ng-repeat="langs in data.skills">
-                    <div class="card card-inverse {{ langs.color }}">
+                    <div class="card card-inverse {{ langs.Color }}">
                         <div class="card-block">
-                            <div class="h4 m-0">{{langs.value}}%</div>
-                            <div>{{langs.language}}</div>
+                            <div class="h4 m-0">{{langs.Value}}%</div>
+                            <div>{{langs.SkillName}}</div>
                             <div class="progress progress-white progress-xs my-3">
-                                <div class="progress-bar " role="progressbar" style="width: {{langs.value}}%" aria-valuenow="{{langs.value}}" aria-valuemin="0"
+                                <div class="progress-bar " role="progressbar" style="width: {{langs.Value}}%" aria-valuenow="{{langs.Value}}" aria-valuemin="0"
                                     aria-valuemax="100"></div>
                             </div>
                             <small class="text-muted">{{langs.desc}}</small>
