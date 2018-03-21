@@ -111,6 +111,9 @@
                         label: 'Skills',
                     },
                     resolve: {
+                        loadMyService: ['$ocLazyLoad', function ($ocLazyLoad) {
+                            return $ocLazyLoad.load('js/services/SkillsService.js');
+                        }],
                         loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) { 
                             //loading SkillsControllers to the view
                             return $ocLazyLoad.load({
