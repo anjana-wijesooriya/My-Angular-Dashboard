@@ -56,12 +56,12 @@
                                 <hr class="mt-0">
                                 <ul class="horizontal-bars type-2">
                                     <li ng-repeat="row in bar.source">
-                                        <i ></i>
+                                        <i class="{{ row.iconname }}"></i>
                                         <span class="title">{{ row.title }}</span>
-                                        <span class="value">{{ row.percent }}%</span>
+                                        <span class="value">{{ row.percentage }}%</span>
                                         <div class="bars">
                                             <div class="progress progress-xs">
-                                                <div class="progress-bar {{row.theme}}" role="progressbar" style="width: {{ row.percent }}%" aria-valuenow="{{ row.percent }}" aria-valuemin="0"
+                                                <div class="progress-bar {{row.theme}}" role="progressbar" style="width: {{ row.percentage }}%" aria-valuenow="{{ row.percentage }}" aria-valuemin="0"
                                                     aria-valuemax="100"></div>
                                             </div>
                                         </div>
