@@ -173,6 +173,9 @@
                         label: 'Experience'
                     },
                     resolve: {
+                        loadMyService: ['$ocLazyLoad', function ($ocLazyLoad) {
+                            return $ocLazyLoad.load('js/services/ExperienceService.js');
+                        }],
                         loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
                             return $ocLazyLoad.load([{
                                 files:[ 'js/controllers/ExperienceController.js' ]
