@@ -3,157 +3,39 @@
     <div class="row">
         <div class="col-md-12">
             <!-- The time line -->
-            <ul class="timeline">
-                <li class="time-label">
-                    <span class="bg-red-gradient">
-                        June 2017 to till date
-                    </span>
-                </li>
-                <li>
-                    <i class="fa fa-suitcase bg-blue-gradient text-white"></i>
-                    <div class="timeline-item">
-                        <span class="time text-bold"> Full Time</span>
-                        <h3 class="timeline-header">
-                            <a href="http://kmitsolutions.com" target="_blank">Software Engineer - Content Management & Solutions</a>
-                        </h3>
-                        <div class="timeline-body">
-                            <ul>
-                                <li>Developing Web applications using  C# .Net(MVC), Web API, Javascript, HTML5, SCSS & MS SQL.</li>
-                                <li>Collaborate with clients and users to gather accurate specifications for new enhancements and applications.</li>
-                                <li>Building and testing APIs for applications to exchange data.</li>
-                                <li>Integrate with third-party technologies using their APIs.</li>
-                                <li>Collaborate with UI/UX Developers to translate visual concepts into animated, responsive web pages using HTML5, CSS3, or Web-based animation tools.</li>
-                                <li>Develop animations, navigation, interactivity, etc., using jQuery or other JavaScript libraries.</li>
-                                <li>Thoroughly test the work on multiple browsers and mobile devices.</li>
-                                <li>Create re-usable components and code snippets.</li>
-                                <li>Maintain existing code and assets and troubleshoot bugs within a complex, global code base.</li>
-                                <li>Running performance benchmarking tests.</li>
-                                <li>Building and maintaining databases.</li>
-                                <li>Administer, configure, monitor and test application servers.</li>
-                                <li>Active participation through all phases of the development lifecycle.</li>
-                                <li>Create and document development specifications and work completed.</li>
-                            </ul>
-
+            <ul class="timeline" ng-controller="ExperienceCtrl as experience">
+                <ul class="timeline" ng-repeat="_career in experience track by $index">
+                    <li class="time-label">
+                        <span class="{{ _career.Color }}">
+                            {{ _career.FromDate }} to {{ _career.ToDate }}
+                        </span>
+                    </li>
+                    <li>
+                        <i class="fa fa-suitcase bg-blue-gradient text-white"></i>
+                        <div class="timeline-item">
+                            <span class="time text-bold"> {{ _career.Basis }}</span>
+                            <h3 class="timeline-header">
+                                <a href="#" target="_blank">{{ _career.Designation }} - {{ _career.CompanyName }}</a>
+                            </h3>
+                            <div class="timeline-body">
+                                <ul>
+                                    <li ng-repeat="duty in _career.Resposibilities">
+                                         {{ duty.Description }}
+                                    </li>
+                                </ul>
+                    
+                            </div>
+                            <div class="timeline-footer">
+                                <p>
+                                    <span ng-repeat="skill in _career.Skills" class="label {{ skill.Color }}">{{ skill.SkillName }}</span>
+                                    <!-- <span class="pull-right">
+                                        <a class="btn btn-primary btn-xs" ui-sref="app.recent">View Recent projects</a>
+                                    </span> -->
+                                </p>
+                            </div>
                         </div>
-                        <div class="timeline-footer">
-                            <p>
-                                <span class="label aqua">HTML 5</span>
-                                <span class="label label-success">CSS 3</span>
-                                <span class="label label-success">C# ASP.NET</span>
-                                <span class="label label-success">MS SQL</span>
-                                <span class="label label-success">T-SQL</span>
-                                <span class="label label-success">MVC5</span>
-                                <span class="label label-success">Restful Web services</span>
-                                <span class="label label-success">Bootstrap</span>
-                                <span class="label label-success">KnockoutJS</span>
-                                <span class="label label-warning">Java Script</span>
-                                <span class="label label-danger">jQuery</span>
-                                <span class="label label-success">SAAS</span>
-                                <span class="pull-right">
-                                    <a class="btn btn-primary btn-xs" ui-sref="app.recent">View Recent projects</a>
-                                </span>
-                            </p>
-                        </div>
-                    </div>
-                </li>
-                <li class="time-label">
-                    <span class="bg-green-gradient">
-                        Feruary 2017 - June 2017
-                    </span>
-                </li>
-                <li>
-                    <i class="fa fa-pencil-square-o bg-yellow-gradient text-white"></i>
-                    <div class="timeline-item">
-                        <span class="time text-bold"> Part Time</span>
-                        <h3 class="timeline-header">
-                            <a>Software Engineer - Freelancer</a>
-                        </h3>
-                        <div class="timeline-body">
-                            <ul>
-                                <li>Developing web applications using the .NET framework, Javascript, HTML5, SCSS & MS SQL.</li>
-                                <li>Contributing to software design and documentation.</li>
-                                <li>Crafting clean, easy to maintain, well-tested code using rigorous continuous delivery methodologies, including automated
-                                functional and non-functional testing.</li>
-                                <li>Troubleshoot, debug and upgrade existing software.</li>
-                                <li>Integrate software components and third-party programs.</li>
-                                <li>Verify and deploy programs and systems.</li>
-                                <li>Gather and evaluate user feedback.</li>
-                                <li>Recommend and execute improvements.</li>
-                            </ul>
-
-                        </div>
-                        <div class="timeline-footer">
-                            <p>
-                                <span class="label label-danger">C# ASP.NET</span>
-                                <span class="label label-success">HTML5</span>
-                                <span class="label label-info">CSS3</span>
-                                <span class="label label-warning">Javascript</span>
-                                <span class="label label-primary">JQuery</span>
-                                <span class="label label-primary">AngularJS</span>
-                                <span class="label label-primary">Entity Framework</span>
-                                <span class="label label-primary">Bootstrap</span>
-                                <span class="label label-primary">SAAS</span>
-                                <span class="label label-primary">Restful Web services</span>
-                                <span class="label label-primary">MS SQL</span>
-                                <span class="label label-primary">Crystal Reports</span>
-                                <span class="label label-primary">IIS</span>
-                                <span class="pull-right">
-                                    <a class="btn btn-google btn-xs" ui-sref="app.websites">View Websites</a>
-                                    <a class="btn btn-facebook btn-xs" ui-sref="app.portfolio">View Portfolio</a>
-                                </span>
-                            </p>
-                        </div>
-                    </div>
-                </li>
-                <li class="time-label"> 
-                    <span class="bg-yellow-gradient">
-                        Feruary 2015 - January 2017
-                    </span>
-                </li>
-                <li>
-                    <i class="fa fa-pencil-square-o bg-yellow-gradient text-white"></i>
-                    <div class="timeline-item">
-                        <span class="time text-bold"> Full Time</span>
-                        <h3 class="timeline-header">
-                            <a>Software Engineer - Bileeta Private Limited</a>
-                        </h3>
-                        <div class="timeline-body">
-                            <ul>
-                                <li>Developing web applications using the .NET framework, Javascript, HTML5, SCSS & MS SQL.</li>
-                                <li>Maintain and improve the performance of existing software.</li>
-                                <li>Preparation of training manuals for users.</li>
-                                <li>Testing the product in controlled, real situations before going live.</li>
-                                <li>Producing detailed specifications and writing the program codes.</li>
-                                <li>Design and update software database.</li>
-                                <li>Preparing test data models and writing scripts, functions and stored procedures to confirm the consistency of database.</li>
-                                <li>Recommend improvements to existing software programs as necessary.</li>
-                                <li>Enhancing System functionality as per customer request.</li>
-                            </ul>
-                
-                        </div>
-                        <div class="timeline-footer">
-                            <p>
-                                <span class="label label-danger">C# ASP.NET</span>
-                                <span class="label label-success">HTML5</span>
-                                <span class="label label-info">CSS3</span>
-                                <span class="label label-warning">Javascript</span>
-                                <span class="label label-primary">JQuery</span>
-                                <span class="label label-primary">Web Forms</span>
-                                <span class="label label-primary">Bootstrap</span>
-                                <span class="label label-primary">SAAS</span>
-                                <span class="label label-primary">Restful Web services</span>
-                                <span class="label label-primary">Web API</span>
-                                <span class="label label-primary">MS SQL</span>
-                                <span class="label label-primary">Crystal Reports</span>
-                                <span class="label label-primary">IIS</span>
-                                <span class="pull-right">
-                                    <a class="btn btn-google btn-xs" ui-sref="app.websites">View Websites</a>
-                                    <a class="btn btn-facebook btn-xs" ui-sref="app.portfolio">View Portfolio</a>
-                                </span>
-                            </p>
-                        </div>
-                    </div>
-                </li>
+                    </li>
+                </ul>
                 <li>
                     <i class="fa fa-clock-o bg-gray"></i>
                 </li>
