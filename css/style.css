@@ -9475,3 +9475,24 @@ img {
 
 .callout h4 {
   color: #2d2d2d; }
+
+.timeline-footer span.label {
+  margin-right: 3px; }
+
+.sidebar-collapsed {
+  width: 45px !important; }
+  .sidebar-collapsed .has-user-block {
+    display: none !important; }
+  .sidebar-collapsed .nav-title {
+    display: none !important; }
+
+.mg-left-45 {
+  margin-left: 45px !important; }
+
+.sidebar-collapsed-mobile {
+  margin-left: 0px !important;
+  z-index: 1 !important; }
+  .sidebar-collapsed-mobile .has-user-block {
+    display: block !important; }
+  .sidebar-collapsed-mobile .nav-title {
+    display: block !important; }

@@ -3,7 +3,7 @@
        
         var serviceUrl = GetStoredObject('restApiPath');
         
-        var GetCarrers = function () {
+        var GetCareers = function () {
             try {
                 return $http.get(serviceUrl + 'experience/getExperience')
                     .then(function (response) {
@@ -25,6 +25,17 @@
             }
         }
 
+        var GetResposibilities = function () {
+            try {
+                return $http.get(serviceUrl + 'experience/getResponsibilities')
+                    .then(function (response) {
+                        return response.data;
+                    });
+            } catch (error) {
+                
+            };
+        };
+
         var GetSkillSByCareerId = function (CareerId) {
             try {
                 return $http.get(serviceUrl + 'experience/getSkillsByCareer/' + CareerId)
@@ -36,10 +47,23 @@
             }
         }
 
+        var GetSkills = function () {
+            try {
+                return $http.get(serviceUrl + 'experience/getSkills')
+                    .then(function (response) {
+                        return response.data;
+                    });
+            } catch (error) {
+
+            };
+        };
+
         return {
-            GetCarrers: GetCarrers,
+            GetCareers: GetCareers,
             GetResponsibilitiesByCareerId: GetResponsibilitiesByCareerId,
-            GetSkillSByCareerId: GetSkillSByCareerId
+            GetSkillSByCareerId: GetSkillSByCareerId,
+            GetSkills: GetSkills,
+            GetResposibilities: GetResposibilities
         }
     }
     var module = angular.module('app');
