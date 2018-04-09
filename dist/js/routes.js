@@ -191,12 +191,27 @@
                     }
                 }
 
+                var about = {
+                    name: 'app.about',
+                    url: '/aboutme',
+                    templateUrl: 'views/pages/aboutme.html',
+                    data: { pageTitle: 'About Me' },
+                    controller: 'AboutCtrl',
+                    ncyBreadcrumb: { label: 'About Me' },
+                    resolve: {
+                        loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
+                            return $ocLazyLoad.load('js/controllers/AboutController.js');
+                        } ]
+                    }
+                }
+
                 $stateProvider
                     .state(appState)
                     .state(dashboard) 
                     .state(skills)
                     .state(education)
                     .state(experience)
+                    .state(about)
                 
                 // $httpProvider.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
                 $httpProvider.defaults.useXDomain = true;
