@@ -205,6 +205,27 @@
                     }
                 }
 
+                var contact = {
+                    name: 'app.contact',
+                    url: '/contactme',
+                    templateUrl: 'views/pages/contact.html',
+                    data: { pageTitle: 'Contact Me' },
+                    controller: 'ContactCtrl',
+                    ncyBreadcrumb: { label: 'Contact Me' },
+                    resolve: {
+                        loadMyService: ['$ocLazyLoad', function ($ocLazyLoad) {
+                            return $ocLazyLoad.load({
+                                files:['js/services/MailService.js']
+                            });
+                        }],
+                        loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
+                            return $ocLazyLoad.load({
+                                files: ['js/controllers/AboutController.js',]
+                            });
+                        }]
+                    }
+                }
+
                 $stateProvider
                     .state(appState)
                     .state(dashboard) 
@@ -212,6 +233,7 @@
                     .state(education)
                     .state(experience)
                     .state(about)
+                    .state(contact)
                 
                 // $httpProvider.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
                 $httpProvider.defaults.useXDomain = true;
